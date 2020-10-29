@@ -10,7 +10,7 @@ const {
 } = require('../middlewares');
 const { Router } = require('express');
 
-module.exports = function ({ HomeRoutes }) {
+module.exports = function () {
   const router = express.Router();
   const apiRoutes = express.Router();
 
@@ -19,8 +19,6 @@ module.exports = function ({ HomeRoutes }) {
     .use(cors())
     .use(helmet())
     .use(compression());
-
-  apiRoutes.use('/home', HomeRoutes);
 
   router.use('/v1/api', apiRoutes);
 
