@@ -10,10 +10,13 @@ const config = require('../config');
 const app = require('.');
 
 // services
-const { HomeService } = require('../services');
+const {
+  UserService,
+  IdeaService,
+  CommentService,
+} = require('../services');
 
 // controllers
-const { HomeController } = require('../controllers');
 
 // routes
 const { HomeRoutes } = require('../routes/index.routes');
@@ -38,16 +41,12 @@ container
     config: asValue(config),
   })
   .register({
-    HomeService: asClass(HomeService).singleton(),
+    UserService: asClass(UserService).singleton(),
+    CommentService: asClass(CommentService).singleton(),
+    IdeaService: asClass(IdeaService).singleton(),
   })
-  .register({
-    HomeController: asClass(
-      HomeController.bind(HomeController)
-    ).singleton(),
-  })
-  .register({
-    HomeRoutes: asFunction(HomeRoutes).singleton(),
-  })
+  .register({})
+  .register({})
   .register({
     User: asValue(User),
     Idea: asValue(Idea),
