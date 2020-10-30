@@ -10,7 +10,11 @@ const {
 } = require('../middlewares');
 const { Router } = require('express');
 
-module.exports = function () {
+module.exports = ({
+  UserRoutes,
+  CommentRoutes,
+  IdeaRoutes,
+}) => {
   const router = express.Router();
   const apiRoutes = express.Router();
 
@@ -19,6 +23,10 @@ module.exports = function () {
     .use(cors())
     .use(helmet())
     .use(compression());
+
+  apiRoutes.use('/user', UserRoutes);
+  apiRoutes.use('/comment', CommentRoutes);
+  apiRoutes.use('/idea', IdeaRoutes);
 
   router.use('/v1/api', apiRoutes);
 
