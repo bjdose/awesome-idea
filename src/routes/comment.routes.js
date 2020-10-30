@@ -1,6 +1,6 @@
 const { Router } = require('express');
 
-module.exports = ({ CommentController }) => {
+module.exports = function ({ CommentController }) {
   const router = Router();
 
   router.get('/:commentId/unique', CommentController.get);

@@ -1,6 +1,6 @@
 const { Router } = require('express');
 
-module.exports = ({ IdeaController }) => {
+module.exports = function ({ IdeaController }) {
   const router = Router();
 
   router.get('/:ideaId', IdeaController.get);

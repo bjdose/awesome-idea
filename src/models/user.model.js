@@ -16,17 +16,17 @@ const UserSchema = new Schema({
   },
 });
 
-UserSchema.methods.toJSON = () => {
+UserSchema.methods.toJSON = function () {
   let user = this.toObject();
   delete user.password;
   return user;
 };
 
-UserSchema.methods.comparePassword = () => {
+UserSchema.methods.comparePasswords = function (password) {
   return compareSync(password, this.password);
 };
 
-UserSchema.pre('save', async () => {
+UserSchema.pre('save', async function (next) {
   const user = this;
   if (!user.isModified('password')) {
     return next();

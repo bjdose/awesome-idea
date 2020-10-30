@@ -11,7 +11,7 @@ class Server {
 
   start() {
     return new Promise((resolve) => {
-      _express.listen(_config.PORT, () => {
+      _express.listen(_config.PORT, function () {
         console.log(
           `${_config.APPLICATION_NAME} API running on port ${_config.PORT}`
         );
