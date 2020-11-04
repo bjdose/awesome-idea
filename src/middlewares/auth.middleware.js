@@ -14,7 +14,7 @@ module.exports = function (req, res, next) {
     error,
     decodedToken
   ) {
-    if (!error) {
+    if (error) {
       const error = new Error();
       error.status = 401;
       error.message = 'Invalid token';
