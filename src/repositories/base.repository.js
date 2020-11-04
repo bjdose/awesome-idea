@@ -9,7 +9,6 @@ class BaseRepository {
 
   async getAll(pageSize = 5, pageNum = 1) {
     const skips = pageSize * (pageNum - 1);
-    console.info({ skips, pageNum });
     return await this.model
       .find()
       .skip(skips)
