@@ -13,7 +13,7 @@ module.exports = function ({ IdeaController }) {
   router.get('/:userId/all', IdeaController.getUserIdeas);
   router.post('/', IdeaController.create);
   router.patch('/:ideaId', IdeaController.update);
-  router.delete('/:userId', IdeaController.delete);
+  router.delete('/:ideaId', IdeaController.delete);
   router.post('/:ideaId/upvote', IdeaController.upvoteIdea);
   router.post(
     '/:ideaId/downvote',

@@ -26,7 +26,7 @@ class IdeaService extends BaseService {
       throw error;
     }
 
-    const idea = await _ideaRepository.getUserIdeas(author);
+    const idea = await _ideaRepository.get(ideaId);
 
     if (!idea) {
       const error = new Error();
@@ -50,7 +50,7 @@ class IdeaService extends BaseService {
       throw error;
     }
 
-    const idea = await _ideaRepository.getUserIdeas(author);
+    const idea = await _ideaRepository.get(ideaId);
 
     if (!idea) {
       const error = new Error();
